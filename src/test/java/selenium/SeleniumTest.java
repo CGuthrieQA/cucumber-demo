@@ -20,63 +20,16 @@ public class SeleniumTest {
 	@BeforeAll
 	public static void setup() {
 		System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
-//		driver = new ChromeDriver();
 		driver = new ChromeDriver(chromeCfg());
-		
-//		Dimension dimension = new Dimension(1920, 1080);
-//		driver.manage().window().setSize(dimension);
-//
-//		driver.manage().window().maximize();
-
 	}
-	
-//	@Disabled("Do not run")
-//	@BeforeEach
-//	public void waitABit() { // throws Exception {
-//	//Thread.sleep(3000);
-//	
-//	
-//	//page load timeout
-//	System.out.println("10 second page load timeout");
-//	driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
-//	
-//
-//	//implicit wait timeout
-//	System.out.println("3 second implicit wait timeout");
-//	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
-//
-//
-//	//scripted timeout
-//	System.out.println("5 second scripted timeout");
-//	driver.manage().timeouts().scriptTimeout(Duration.ofSeconds(5));
-//	
-//	
-//	//non-depricated web driver wait 
-//	System.out.println("1 second web driver wait");
-//	new WebDriverWait(driver, Duration.ofSeconds(1)).until(ExpectedConditions.
-//														elementToBeClickable(By.name("q")));
-//														//presenceOfElementLocated(By.name("q")));
-//														//visibilityOfElementLocated(By.name("q")));
-//	}
-//	
-//	@Disabled("Do not run")
-//	@Test
-//	public void testTitle() {
-//		System.out.println("testing google title");
-//		driver.get("https://google.com");
-//		assertEquals("Google", driver.getTitle());
-//	}
 
 	@Test
-	public void testKittens() { 
-		System.out.println("testing Kittens");
+	public void testKittens() {
 		driver.get("https://google.com");
-		
-		
-		
+
 		driver.findElement(By.name("q")).sendKeys("kittens");
 		driver.findElement(By.name("q")).submit();
-		
+
 		assertEquals("kittens - Google Search", driver.getTitle());
 	}
 
@@ -98,11 +51,6 @@ public class SeleniumTest {
 
 		// Create ChromeOptions to disable Cookies pop-up
 		cOptions.setExperimentalOption("prefs", prefs);
-		//cOptions.setHeadless(true);
-		
-//		cOptions.addArguments("--window-size=800,600");
-//		cOptions.addArguments("--start-maximized");
-//		cOptions.addArguments("--headless");
 
 		return cOptions;
 	}
