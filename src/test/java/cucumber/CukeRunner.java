@@ -7,9 +7,10 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-	plugin = {"pretty", "html:target/cucumber.html"}, // nice output to a file
 	features = "src/test/resources/cuke", // where your features are stored
+	glue = "com.qa.cucumber.stepdefs", // where your step definitions are stored
 	stepNotifications = true, // so that JUnit will display the test steps
+	plugin = {"pretty", "html:target/cucumber.html"}, // nice output to a file
 	monochrome = true // makes the console output more readable
 )
 public class CukeRunner {

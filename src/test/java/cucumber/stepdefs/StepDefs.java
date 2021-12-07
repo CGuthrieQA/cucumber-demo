@@ -26,20 +26,20 @@ public class StepDefs {
 		driver = new ChromeDriver(chromeCfg());
 	}
 	
-	@Given("that I can access google")
-	public void that_i_can_access_google() {
-		driver.get("https://google.com");
+	@Given("that I can access {string}")
+	public void that_i_can_access(String string) {
+		driver.get("https://" + string);
 	}
 	
-	@When("I search for kittens")
-	public void i_search_for_kittens() {
-		driver.findElement(By.name("q")).sendKeys("kittens");
+	@When("I search for {string}")
+	public void i_search_for(String string) {
+		driver.findElement(By.name("q")).sendKeys(string);
 		driver.findElement(By.name("q")).submit();
 	}
 	
-	@Then("I should be able to view kittens")
-	public void i_should_be_able_to_view_images_of_kittnes() {
-		assertEquals("kittens - Google Search", driver.getTitle());
+	@Then("I should be able to view {string}")
+	public void i_should_be_able_to_view(String string) {
+		assertEquals(string + " - Google Search", driver.getTitle());
 	}
 
 	@After
