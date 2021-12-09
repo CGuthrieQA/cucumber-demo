@@ -13,7 +13,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
-public class SeleniumTest {
+class SeleniumTest {
 
 	private static RemoteWebDriver driver;
 
@@ -24,7 +24,7 @@ public class SeleniumTest {
 	}
 
 	@Test
-	public void testKittens() { 
+	void testKittens() { 
 		driver.get("https://google.com");
 		driver.findElement(By.name("q")).sendKeys("kittens");
 		driver.findElement(By.name("q")).submit();
